@@ -26,7 +26,7 @@ def twitter(request):
 
     return render(
         request,
-        'hello/twitter.html',
+        'twitter.html',
         {
             'sender_id': sender_id,
             'message_text': message_text,
