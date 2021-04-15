@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block title %}
+Mi último mensaje de Twitter
+{% endblock %}
+{% block content %}
+<p>A continuación verás el último mensaje que tienes en tu buzón, 
+el que lo envió el id {{ sender_id }}, que corresponde al usuario {{ user_name }}</p>
+<br>
+<br>
+<p>{{ message_text }}</p>
+{% endblock %}
