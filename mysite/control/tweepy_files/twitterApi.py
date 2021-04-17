@@ -2,12 +2,13 @@
 # https://www.geeksforgeeks.org/python-directmessage-object-in-tweepy/
 
 import tweepy
+from django.conf import settings
 
 # Initialize credentials
-consumer_key = api_config.CONSUMER_KEY
-consumer_secret = api_config.CONSUMER_SECRET
-access_token = api_config.ACCESS_TOKEN
-access_token_secret = api_config.ACCESS_TOKEN_SECRET
+consumer_key = settings.CONSUMER_KEY
+consumer_secret = settings.CONSUMER_SECRET
+access_token = settings.ACCESS_TOKEN
+access_token_secret = settings.ACCESS_TOKEN_SECRET
 
 class TwitterApi:
  

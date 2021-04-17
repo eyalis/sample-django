@@ -14,12 +14,18 @@ import os
 import sys
 import dj_database_url
 from urllib.parse import urlparse
-
+from decouple import config
 from django.core.management.utils import get_random_secret_key
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+
+# Twitter Keys (otherwise read it from a local .env file)
+CONSUMER_KEY = os.getenv("CONSUMER_KEY", config('CONSUMER_KEY'))
+CONSUMER_SECRET = os.getenv("CONSUMER_SECRET", config('CONSUMER_SECRET'))
+ACCESS_TOKEN = os.getenv("ACCESS_TOKEN", config('ACCESS_TOKEN'))
+ACCESS_TOKEN_SECRET = os.getenv("ACCESS_TOKEN_SECRET", config('ACCESS_TOKEN_SECRET'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -28,15 +34,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG", "False") == "True"
+DEBUG = os.getenv("DEBUG", "True") == "True"
 
 ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
 
-# Twitter Keys
-CONSUMER_KEY = os.getenv("CONSUMER_KEY")
-CONSUMER_SECRET = os.getenv("CONSUMER_SECRET")
-ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
-ACCESS_TOKEN_SECRET = os.getenv("ACCESS_TOKEN_SECRET")
 
 # Application definition
 
@@ -79,13 +80,15 @@ TEMPLATES = [
     },
 ]
 
+# Uncomment in deployment @eyalis
 WSGI_APPLICATION = "mysite.wsgi.application"
 
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-if os.getenv("DEVELOPMENT_MODE", "False") == "True":
+# Here I define if I want development mode
+if os.getenv("DEVELOPMENT_MODE", "True") == "True":
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",

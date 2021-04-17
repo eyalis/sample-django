@@ -2,13 +2,15 @@ import re
 from django.utils.timezone import datetime
 from django.http import HttpResponse
 from django.shortcuts import render
+import importlib  
 
 # Add these to existing imports at the top of the file:
 from django.shortcuts import redirect
 from django.views.generic import ListView
 
 # Add Twitter functions
-from sample-django.control.tweepy_files import twitterApi
+# from sample-django.control.tweepy_files import twitterApi
+from .control.tweepy_files import twitterApi
 
 # # Replace the existing home function with the one below
 # class HomeListView(ListView):
