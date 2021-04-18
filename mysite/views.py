@@ -36,5 +36,16 @@ def twitter(request):
         }
     )
 
+
+def signin_form(request):
+    return render(
+        request,
+        'signin_form.html',
+        {
+            'text': "un texto",
+            'title': "mi titulo"
+        }
+    )
+
 # def home(request):
 #     return render(request, "sample-django/home.html")

@@ -22,4 +22,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("frontpage.urls")),
     path("twitter/", views.twitter, name="twitter"),
+    path("signin_form/", views.signin_form, name="signin_form"),
 ]
