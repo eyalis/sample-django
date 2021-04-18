@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    {% comment %} https://bootswatch.com/cosmo/ {% endcomment %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}">
+    <script src="{% static 'js/jquery-3.6.0.js' %}"></script> 
+</head>
+<body>
+<div class="navbar">
+    <a href="{% url 'twitter' %}" class="navbar-item">Twitter</a>
+</div>
+
+<center>
+<div class="container bottom-buffer">
+          <h1>Mi Escritorio</h1>
+</div>
+</center>
+
+
+<center>
+<div class="card border-primary mb-3" style="max-width: 30rem;">
+  <div class="card-header">{% block card-header %}{% endblock %}</div>
+  <div class="card-body">
+    <h4 class="card-title">{% block card-title %}{% endblock %}</h4>
+    <p class="card-text">{% block card-text %}{% endblock %}</p>
+  </div>
+</div>
+</center>
+</body>
+</html>

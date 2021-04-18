@@ -1,10 +1,13 @@
-{% extends "layout.html" %}
-{% block title %}
-Mi último mensaje de Twitter
-{% endblock %}
-{% block content %}
+{% extends "base.html" %}
+
+{% block title %} Mi Escritorio {% endblock %}
+{% block card-header %} Notificación {% endblock %}
+
+{% block card-title %}De: {{ user_name }}{% endblock %}
+
+{% block card-text %}
 <p>A continuación verás el último mensaje que tienes en tu buzón, 
-el que lo envió el id {{ sender_id }}, que corresponde al usuario {{ user_name }}</p>
+el que lo envió el id {{ sender_id }}: </p>
 <br>
 <br>
 <p>{{ message_text }}</p>
