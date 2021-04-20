@@ -12,15 +12,6 @@ from django.views.generic import ListView
 # from sample-django.control.tweepy_files import twitterApi
 from .control.tweepy_files import twitterApi
 
-# # Replace the existing home function with the one below
-# class HomeListView(ListView):
-#     """Renders the home page, with a list of all messages."""
-#     model = LogMessage
-
-#     def get_context_data(self, **kwargs):
-#         context = super(HomeListView, self).get_context_data(**kwargs)
-#         return context
-
 def twitter(request):
     twitterSession = twitterApi.TwitterApi()
     sender_id, message_text =twitterSession.retrieveMessages()
